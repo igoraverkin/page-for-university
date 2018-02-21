@@ -1,19 +1,49 @@
 <template>
    <div id="app">
-    <app-toolbar >  </app-toolbar>   
-    <app-main-page ></app-main-page>
-    <app-courses ></app-courses>   
-    <app-thoughts ></app-thoughts> 
-    <app-contacts > </app-contacts>
+    <app-toolbar  @backToMainPage="state='start'" @backToThoughts="state='thoughts'" @backToCourses="state='courses'" @backToContacts="state='contacts'">  </app-toolbar>   
+    <app-main-page v-if="state == 'start'" ></app-main-page>
+    <app-courses v-else-if="state == 'courses'"></app-courses>   
+    <app-thoughts v-else-if="state == 'thoughts'"></app-thoughts> 
+    <app-contacts v-else-if="state == 'contacts'"> </app-contacts>
   </div>
 </template>
 
 <script>
 export default {
-  
+  name: 'app',
+  data () {
+    return {
+      state: 'start'
+    }
+  }
 }
 </script>
 
 <style scoped>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 
+h1, h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
 </style>
