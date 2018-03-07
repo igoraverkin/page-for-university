@@ -1,10 +1,10 @@
 <template>
-   <div>
-       <button @click="$emit('backToMainPage')"><div id='MainPage'>Главная</div></button>
-	   <button @click="$emit('backToThoughts')"><div id='Thoughts'>Мысли</div></button>
-	   <button @click="$emit('backToCourses')"><div id='Courses'>Лекции</div></button>
-	   <button @click="$emit('backToContacts')"><div id='Contacts'>Контакты</div></button>
-   </div>
+   <nav>
+    <router-link to="/"> <button class="btn btn-main"  >Главная</button></router-link>
+	  <router-link to="/thoughts"><button class="btn btn-thoughts" >Мысли</button></router-link>
+	  <router-link to="/courses"><button class="btn btn-courses" >Лекции</button></router-link>
+	  <router-link to="/contacts"><button class="btn btn-contacts">Контакты</button></router-link>
+   </nav>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style scoped>
-button {
+.btn {
   position: relative;
   border: transparent;
   color: white;
@@ -31,11 +31,11 @@ button {
   background-position: 200% 0, 0 0;
   box-shadow: rgba(0,0,0,.3) 0 2px 5px;
 } 
-button:active {
+.btn:active {
   top: 1px;
   box-shadow: none;
 }
-button:hover {
+.btn:hover {
   transition: .5s linear;
   background-position: -200% 0, 0 0;
 }
