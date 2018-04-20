@@ -1,11 +1,9 @@
-<template >
-<div>
+<template class="thg" >
    <ul>
 	   <li v-for="thought in thoughts" :key="thought.id" >
-		  <a :href="thought.source"> {{thought.think}}</a>
+		  <a target="_blank" :href="thought.source"> {{thought.think}}</a>
 	   </li>
    </ul>
-</div>
 </template>
 
 <script>
@@ -20,5 +18,13 @@ var thoughts = require('../Ueberthoughts')
 </script>
 
 <style scoped>
+a, a:visited {
+  color: #09b117;
+  text-decoration: none;
+}
 
+ul{
+  background-image: url("../assets/roma.jpg"); 
+  color: cadetblue;
+}
 </style>

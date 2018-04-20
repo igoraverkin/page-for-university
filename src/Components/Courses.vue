@@ -1,18 +1,26 @@
 <template>
-   <div>
-   <div><a href='https://www.youtube.com/watch?v=u8qabcsy6oQ'>Язычество </a></div>
-   <div><a href='https://www.youtube.com/watch?v=mCSG0LFE-RA'>Постмодернизм </a></div>
-   <div><a href='https://www.youtube.com/watch?v=Nk6jr7ydAKw'>Витгенштейн </a></div>
-   <div><a href='https://www.youtube.com/watch?v=9ffmQ5DrI1o'>Ветхий завет</a></div>
-   </div>
+  <ul>
+	<li v-for="course in courses" :key="course.id" >
+	<a target="_blank" :href="course.source"> {{course.meaning}}</a>
+	</li>
+  </ul>
 </template>
 
 <script>
-export default {
-  
+  var courses = require('../Uebercourses')
+  module.exports = {	
+    data ()  {
+      return {
+        courses: courses
+      }
+    }
 }
 </script>
 
 <style scoped>
 
+a, a:visited {
+  color: #09b117;
+  text-decoration: none;
+}
 </style>
